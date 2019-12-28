@@ -34,7 +34,7 @@ Let's look at the settings that you can change with the initial variables of the
 - `LocalDir` this variable must be left blank if your IDE displays the root-path to the file. If it doesn't, fill it with your project's root folder's full path. Example : `C:\xampp\htdocs\`
 - `ServerUrl` is your root folder trough HTTP. It must but the path to your project's root
 
-`YourRegx` to its default value will select the file's path after "...\" and before " -", just as this "DEV (C:\xampp\htdocs\DEV\) - ...\ `my_folder\my-file.php` - PhpStorm .
+`YourRegx` to its default value will select the file's path after "...\" and before " -", just as this "DEV (C:\xampp\htdocs\DEV\) - ...\ `my_folder\my-file.php`" - PhpStorm .
 
 `AlternativeReg` to its default value will select anything before a combination of a point and letters that is followed by any non-letter character, like a whitespace or "-". See the example "`my_test-file222.php` - Notepad".
 
