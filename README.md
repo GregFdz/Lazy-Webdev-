@@ -1,6 +1,7 @@
-# Lazy-Webdev-
+# Lazy-Webdev- Introduction
 A snippet for lazy web developpers
 
+**The problem**
 After an unsuccesful search for an PHP IDE that embeds an efficient live preview, I just realized that I was the only one who could provide it to myself. Here's how it works :
 - Your IDE is on a windows' desktop
 - Your browser (Firefox, Edge, Chrome or whatever) is on a secondary virtual windows' desktop.
@@ -9,6 +10,7 @@ Basically, to review any change, you'd need at least : To press CTRL + S ; then 
 
 And if you switched your currently-edited file, you're screwed : you'll have to type the file's address in the browser's addres bar.
 
+**The solution**
 Thanks to AutoHotKey, you won't. With this script, what you only have to do is pressing CTRL + Q and your file will be saved, your desktop will switch to the next one and your browser will refresh to the file that you're editing. It's been created for PHPStorm but it can be used or adapted to any IDE. IDEs usually display the full path from the root to the current file in their window title ; if yours doesn't and if it displays the file's name, Lazy Wedev script will look for it in your root directory and select the occurence with the most recent last-edited date.
 
 
