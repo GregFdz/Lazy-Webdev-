@@ -5,10 +5,7 @@ After an unsuccesful search for an PHP IDE that embeds an efficient live preview
 - Your IDE is on a windows' desktop
 - Your browser (Firefox, Edge, Chrome or whatever) is on a secondary virtual windows' desktop.
 
-Basically, to review any change, you'd need at least :
-- To press CTRL + S
-- Then to press CTRL + ALT + RigthArrow
-- To press F5
+Basically, to review any change, you'd need at least : To press CTRL + S ; then to press CTRL + ALT + RigthArrow ; then too press F5.
 
 And if you switched your currently-edited file, you're screwed : you'll have to type the file's address in the browser's addres bar.
 
