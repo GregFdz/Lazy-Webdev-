@@ -1,5 +1,5 @@
 # Lazy-Webdev- Introduction
-A snippet for lazy web developpers, a powerful hotkey to save much time
+A snippet for lazy web developpers, a powerful hotkey to save much time. Used to live preview php or other web languages with PhpStorm, Dreamweaver, Sublime, Notepad, Atom or any text editor.
 
 **The problem**
 
