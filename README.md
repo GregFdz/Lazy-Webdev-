@@ -1,5 +1,5 @@
 # Lazy-Webdev- Introduction
-A snippet for lazy web developpers
+A snippet for lazy web developpers, a powerful hotkey to save much time
 
 **The problem**
 
