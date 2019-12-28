@@ -34,7 +34,7 @@ Let's look at the settings that you can change with the initial variables of the
 - `YourBrowser` is the name of your browser as displayed in its title bar
 - `YourRegx` is the default regular expression used to get the file's path in the window's title. We'll later see how it works.
 - `AlternativeRegx` is an alternative regular expression that is used if your IDE's title bar doesn't display the project's root-path to the file
-- `LocalDir` this variable must be left blank if your IDE displays the root-path to the file. If it doesn't, fill it with your project's root folder's full path. Example : `C:\xampp\htdocs\`
+- `LocalDir` this variable must be left blank if your IDE does display the root-path to the file int its title bar. If it doesn't, fill this variable with the full path to your project's root folder's. Example : `C:\xampp\htdocs\`
 - `ServerUrl` is your root folder trough HTTP. It must but the path to your project's root
 
 `YourRegx` to its default value will select the file's path after "...\" and before " -", just as this "DEV (C:\xampp\htdocs\DEV\) - ...\ `my_folder\my-file.php` - PhpStorm" .
