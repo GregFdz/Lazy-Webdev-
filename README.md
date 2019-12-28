@@ -46,38 +46,34 @@ https://autohotkey.com/board/topic/16400-ahk-regex-tester-v21/
 If you want to edit it afterwise, right-click AHK's tray icon, then "Edit script". Once you saved it, don't forget to right-click AHK's icon and "Reload script".
 
 # The code
-The full commented code :
+The full uncommented code :
 ```
-^q:: ; LISTENNING for CTRL+Q (this is your hotkey)
+^q::
 
 
-; Default. SELECTS title between "...\" and " -" 
-YourRegx := "(?<=\.\.\.\\)(.*)(\.[a-z]*)(?=.*)"
+YourRegx := "(?<=\.\.\.\\)(.*)(?=\s-)"
 
-; If your ide title bar doesn't contain root path SELECTS first occurence with any character + a dot + letters and cut when there isn't anymore letters
 AlternativeRegx := "(.*)(\.[a-z]*)(?=.*)" 
 
-; To be used only if your ide window displays you file name without a path. Write in your project's root folder. For example C:\xampp\htdocs\. Duplicate filees may cause false redirect
 LocalDir := ""
 
-; Set your project's root address trough your local server
+
 ServerUrl := "http://localhost/DEV/" 
 
 
-; SAVES the current file
 Send ^{s}
 
-; GETS the title of your IDE's window
+
 WinGetTitle, Title, A 
 
 
-; IF local directory var has been mentionned
+
 If (LocalDir) {
 Msgbox test
-	RegExMatch(Title,AlternativeRegx,File) ; GETS the address of your file
+	RegExMatch(Title,AlternativeRegx,File)
 	MostRecentTime :=
 
-	Loop, Files, %LocalDir%*%File%, R ; SEEKS the mmost recently edited file with the name picked in title bar
+	Loop, Files, %LocalDir%*%File%, R
 	{
     		FileGetTime, ThisFileTime
 
@@ -89,28 +85,22 @@ Msgbox test
     		}
 	}
 
-	FileName := StrReplace(FilePath, LocalDir, "") ; GET the file's path trough your drive
-	AddressBar := StrReplace(FileName, "\", "/") ; CONVERTS backslashes into inverted
+	FileName := StrReplace(FilePath, LocalDir, "")
+	AddressBar := StrReplace(FileName, "\", "/")
 
 }else{
 
-RegExMatch(Title,YourRegx,File) ; GETS the address of your file
-AddressBar := StrReplace(File, "\", "/") ; CONVERTS backslashes into inverted
+RegExMatch(Title,YourRegx,File)
+AddressBar := StrReplace(File, "\", "/")
 }
 
 
-; SWITCHES your desktop
 Send ^#{Right} 
 
-; WAITS a moment can be less or more depending on the browser
 sleep, 500
-
-; SELECTS the address bar with ALT+Q
 Send !{d}
 
-; USE YOUR ROOT ADDRESS
 SendInput %ServerUrl%%AddressBar%
 
-; PRESS Enter
 Send {Enter}
 ```
