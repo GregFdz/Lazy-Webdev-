@@ -2,6 +2,12 @@
 ^q::
 
 
+; The IDE you're working with (must be the name shown in the window title bar)
+YourIde := "PhpStorm"
+
+; The browser you're working with (must be the name shown in the window title bar)
+YourBrowser := "Firefox"
+
 ; Default. SELECTS title between "...\" and " -" 
 YourRegx := "(?<=\.\.\.\\)(.*)(\.[a-z]*)(?=.*)"
 
@@ -15,17 +21,21 @@ LocalDir := ""
 ServerUrl := "http://localhost/DEV/" 
 
 
+; CHECKS if active window is your IDE's window, IF NOT, exit
+WinGetTitle, IdeTitle, A 
+IfNotInString IdeTitle, %YourIde%
+{
+Exit
+}
+
 ; SAVES the current file
 Send ^{s}
-
-; GETS the title of your IDE's window
-WinGetTitle, Title, A 
 
 
 ; IF local directory var has been mentionned
 If (LocalDir) {
 Msgbox test
-	RegExMatch(Title,AlternativeRegx,File) ; GETS the address of your file
+	RegExMatch(IdeTitle,AlternativeRegx,File) ; GETS the address of your file
 	MostRecentTime :=
 
 	Loop, Files, %LocalDir%*%File%, R ; SEEKS the mmost recently edited file with the name picked in title bar
@@ -45,7 +55,7 @@ Msgbox test
 
 }else{
 
-RegExMatch(Title,YourRegx,File) ; GETS the address of your file
+RegExMatch(IdeTitle,YourRegx,File) ; GETS the address of your file
 AddressBar := StrReplace(File, "\", "/") ; CONVERTS backslashes into inverted
 }
 
@@ -55,6 +65,14 @@ Send ^#{Right}
 
 ; WAITS a moment can be less or more depending on the browser
 sleep, 500
+
+; CHECKS if active window is your browser, IF NOT, exit
+WinGetTitle, BrowserTitle, A 
+IfNotInString BrowserTitle, %YourBrowser%
+{
+Msgbox Error : %YourBrowser% is not the active window.
+Exit
+}
 
 ; SELECTS the address bar with ALT+Q
 Send !{d}
