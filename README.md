@@ -30,6 +30,8 @@ https://www.autohotkey.com/docs/Tutorial.htm#s12
 
 Let's look at the settings that you can change with the initial variables of the script :
 
+- `YourIde` is the name of your IDE as it's displayed in its title bar
+- `YourBrowser` is the name of your browser as displayed in its title bar
 - `YourRegx` is the default regular expression used to get the file's path in the window's title. We'll later see how it works.
 - `AlternativeRegx` is an alternative regular expression that is used if your IDE's title bar doesn't display the project's root-path to the file
 - `LocalDir` this variable must be left blank if your IDE displays the root-path to the file. If it doesn't, fill it with your project's root folder's full path. Example : `C:\xampp\htdocs\`
