@@ -52,27 +52,30 @@ The full uncommented code :
 ```
 ^q::
 
+YourIde := "PhpStorm"
 
-YourRegx := "(?<=\.\.\.\\)(.*)(?=\s-)"
+YourBrowser := "Firefox"
+
+YourRegx := "(?<=\.\.\.\\)(.*)(\.[a-z]*)(?=.*)"
 
 AlternativeRegx := "(.*)(\.[a-z]*)(?=.*)" 
 
 LocalDir := ""
 
-
 ServerUrl := "http://localhost/DEV/" 
 
+WinGetTitle, IdeTitle, A 
+IfNotInString IdeTitle, %YourIde%
+{
+Exit
+}
 
 Send ^{s}
 
 
-WinGetTitle, Title, A 
-
-
-
 If (LocalDir) {
 Msgbox test
-	RegExMatch(Title,AlternativeRegx,File)
+	RegExMatch(IdeTitle,AlternativeRegx,File)
 	MostRecentTime :=
 
 	Loop, Files, %LocalDir%*%File%, R
@@ -92,7 +95,7 @@ Msgbox test
 
 }else{
 
-RegExMatch(Title,YourRegx,File)
+RegExMatch(IdeTitle,YourRegx,File)
 AddressBar := StrReplace(File, "\", "/")
 }
 
@@ -100,6 +103,14 @@ AddressBar := StrReplace(File, "\", "/")
 Send ^#{Right} 
 
 sleep, 500
+
+WinGetTitle, BrowserTitle, A 
+IfNotInString BrowserTitle, %YourBrowser%
+{
+Msgbox Error : %YourBrowser% is not the active window.
+Exit
+}
+
 Send !{d}
 
 SendInput %ServerUrl%%AddressBar%
