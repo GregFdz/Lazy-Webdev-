@@ -18,7 +18,7 @@ Thanks to AutoHotKey, you won't. With this script, what you only have to do is p
 
 # HOW TO USE IT
 
-**1) First of all : Instal AutoHotkey**
+**1) First of all : Install AutoHotkey**
 
 Link : https://www.autohotkey.com/download/ahk-install.exe
 
